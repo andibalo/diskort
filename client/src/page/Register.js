@@ -1,8 +1,37 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+import { Header } from "../components/login";
+import { RegisterInputs } from "../components/register";
+import { RegisterFooter } from "../components/register/RegisterFooter";
+import { AuthBox } from "../components/shared"
+import { validateRegisterForm } from "../utils/validators";
 
 export const Register = () => {
 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("");
+    const [isFormValid, setIsFormValid] = useState(false);
+
+    useEffect(() => {
+      setIsFormValid(validateRegisterForm({ email, password, username }));
+    }, [email, password, username, setIsFormValid]);
+  
+    const handleRegister = () => {
+
+    };
+  
     return (
-        <div>Register</div>
+        <AuthBox>
+            <Header />
+            <RegisterInputs
+                mail={email}
+                setMail={setEmail}
+                password={password}
+                setPassword={setPassword}
+                setUsername={setUsername}
+                username={username}
+            />
+            <RegisterFooter isFormValid={isFormValid} handleLogin={handleRegister} />
+        </AuthBox>
     )
 }

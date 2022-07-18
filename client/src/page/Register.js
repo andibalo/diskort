@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Header } from "../components/login";
-import { RegisterInputs } from "../components/register";
-import { RegisterFooter } from "../components/register/RegisterFooter";
+import { RegisterInputs, RegisterFooter } from "../components/register";
 import { AuthBox } from "../components/shared"
 import { validateRegisterForm } from "../utils/validators";
 
